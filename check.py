@@ -43,6 +43,7 @@ def output_classifier( clf, dataset, feature_list, folds = 1000):
             else:
                 true_positives += 1
     try:
+        f1 = 1
         total_predictions = true_negatives + false_negatives + false_positives + true_positives
         accuracy = 1.0*(true_positives + true_negatives)/total_predictions
         precision = 1.0*true_positives/(true_positives+false_positives)
@@ -53,15 +54,17 @@ def output_classifier( clf, dataset, feature_list, folds = 1000):
         print "Got a divide by zero when trying out:", clf
     
     dict = { 
-             'f1'                :f1
-             ,'f2'                :f2
+              'f1'                : f1
+             ,'f2'                : f2
              ,'accuracy'          : accuracy
              ,'precision'         : precision
-             ,'recall'            :recall
-             #,'clf'               :clf
+             ,'recall'            : recall
+             #,'clf'               : clf
              #,'total_predictions' : total_predictions
             }
     return dict
+
+
 
 def load_classifier_and_data():
     clf = pickle.load(open(CLF_PICKLE_FILENAME, "r") )

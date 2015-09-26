@@ -1,2 +1,4 @@
 .DS_Store
 emails_by_address
+.Rhistory
+.ipynb_checkpoints/

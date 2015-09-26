@@ -1,4 +1,6 @@
 #!/usr/bin/env python
+from sklearn.base import BaseEstimator, TransformerMixin
+import pandas as pd
 class ModelTransformer(TransformerMixin):
 
     def __init__(self, model):
@@ -9,4 +11,4 @@ class ModelTransformer(TransformerMixin):
         return self
 
     def transform(self, X, **transform_params):
-        return DataFrame(self.model.predict(X))
+        return pd.DataFrame(self.model.predict(X))
